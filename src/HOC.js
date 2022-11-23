@@ -1,7 +1,7 @@
-import React from "react";
+import React, { Component } from "react";
 
 const HOC = (WrappedComponenet, entity) => {
-  return class extends React.Component {
+  return class extends Component {
     state = {
       data: [],
       term: "",
@@ -12,6 +12,8 @@ const HOC = (WrappedComponenet, entity) => {
           `https://jsonplaceholder.typicode.com/${entity}`
         );
         const json = await res.json();
+
+        // This is known as render hijacking concept
         this.setState({ ...this.state, data: json });
       };
       fetchData();
