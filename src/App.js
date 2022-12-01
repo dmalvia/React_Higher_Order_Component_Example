@@ -1,6 +1,5 @@
-import "./App.css";
-import SearchTodos from "./TodoList";
 import SearchUsers from "./UsersList";
+import SearchTodos from "./TodoList";
 
 function App() {
   return (

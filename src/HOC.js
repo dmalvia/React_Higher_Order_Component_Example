@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 
 const HOC = (WrappedComponenet, entity) => {
+  // HOC returning another component
   return class extends Component {
     state = {
       data: [],
@@ -20,13 +21,13 @@ const HOC = (WrappedComponenet, entity) => {
     }
     render() {
       let { term, data } = this.state;
-      let filteredData = data.slice(0, 10).filter((d) => {
+      let filteredData = data.slice(0, 10).filter((item) => {
         if (entity === "users") {
-          const { name } = d;
+          const { name } = item;
           return name.indexOf(term) >= 0;
         }
         if (entity === "todos") {
-          const { title } = d;
+          const { title } = item;
           return title.indexOf(term) >= 0;
         }
       });
